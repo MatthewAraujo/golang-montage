@@ -7,11 +7,13 @@ import (
 
 func Start() {
 
-	mux := http.NewServeMux()
+	router := http.NewServeMux()
 
 	//defines routes
-	mux.HandleFunc("/greet", greet)
-	mux.HandleFunc("/customers", getAllCustomers)
+	router.HandleFunc("/greet", greet)
+	router.HandleFunc("/customers", getAllCustomers)
+	router.HandleFunc("/customer", createCustomer)
+	router.HandleFunc("/customer/{costumer_ID}", getCustomer)
 
-	log.Fatal(http.ListenAndServe(":8080", mux))
+	log.Fatal(http.ListenAndServe(":8080", router))
 }
