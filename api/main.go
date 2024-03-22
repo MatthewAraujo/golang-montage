@@ -1,6 +1,6 @@
 package main
 
-import "github.com/ashishjuyal/banking/app"
+import "github.com/MatthewAraujo/golang-montage/api/app"
 
 func main() {
 	app.Start()

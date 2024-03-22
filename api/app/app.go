@@ -7,9 +7,11 @@ import (
 
 func Start() {
 
-	//defines routes
-	http.HandleFunc("/greet", greet)
-	http.HandleFunc("/customers", getAllCustomers)
+	mux := http.NewServeMux()
 
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	//defines routes
+	mux.HandleFunc("/greet", greet)
+	mux.HandleFunc("/customers", getAllCustomers)
+
+	log.Fatal(http.ListenAndServe(":8080", mux))
 }
